@@ -1,0 +1,16 @@
+version: '3'
+services:
+    dj_backend:
+      build: 
+        context: ./build/backend
+        dockerfile: build_backend
+      security_opt:
+        - seccomp:unconfined
+      ports:
+        - "80:80"
+      networks:
+        - internalNetwork
+      volumes:
+        - "./bin/backend/:/app/webserver/"
+networks:
+  internalNetwork:
