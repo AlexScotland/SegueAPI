@@ -6,4 +6,6 @@ This is a new Readme.md
 - [ ] Seperated Frontend
 - [ ] Celery
 - [ ] redis
-- [ ] nginx container for serving gunicorn
+- [ ] serving gunicorn
+- [ ] nginx container
+- [ ] asgi
