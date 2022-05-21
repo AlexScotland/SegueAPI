@@ -2,10 +2,8 @@ from python:3.6-buster
 
 WORKDIR /worker
 
-COPY build/celery_worker/requirements.txt .
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-# ADD CELERY COMMAND
-
-CMD ["celery", "-A", "tasks", "worker", "--loglevel=INFO", "--pool=gevent", "--concurrency=500"]
+CMD ["celery", "-A", "tasks.tasks", "worker", "--loglevel=INFO", "--pool=gevent", "--concurrency=500"]
