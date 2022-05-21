@@ -4,7 +4,7 @@ This is a new Readme.md
 - [x] Dockerized
 - [x] Django Backend
 - [ ] Seperated Frontend
-- [ ] Celery
+- [ ] Celery<br>
 ~~- [ ] redis~~
 - [x] Rabbitmq
 - [ ] serving gunicorn
