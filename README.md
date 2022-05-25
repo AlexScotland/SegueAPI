@@ -24,3 +24,5 @@ This is a new Readme.md
 - [ ] serving gunicorn
 - [ ] nginx container
 - [ ] asgi
+- [ ] CICD
+- [ ] Env variables
