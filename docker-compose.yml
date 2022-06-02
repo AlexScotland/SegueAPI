@@ -6,12 +6,37 @@ services:
         dockerfile: build_backend
       security_opt:
         - seccomp:unconfined
+      networks:
+        - internalNetwork
+      volumes:
+        - "./bin/backend/:/app/webserver/"
+
+    react_frontend:
+      build:
+        context: ./
+        dockerfile: ./build/frontend/build_frontend
+      security_opt:
+        - seccomp:unconfined
       ports:
         - "80:80"
       networks:
         - internalNetwork
       volumes:
-        - "./bin/backend/:/app/webserver/"
+        - "./bin/frontend/:/app/react/frontend"
+      depends_on:
+        - dj_backend
+
+    nginx_server:
+      build:
+        context: ./
+        dockerfile: ./build/nginx/build_nginx
+      ports:
+        - 8000:8000
+      depends_on:
+        - dj_backend
+      networks:
+        - internalNetwork
+
     rabbitmq:
       image: rabbitmq:3-management-alpine
       ports:

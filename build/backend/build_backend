@@ -9,11 +9,10 @@ WORKDIR /app/webserver
 RUN apt-get update
 
 # Install dependencies
-# RUN apt-get install -y software-properties-common
 
 COPY requirements.txt .
 
 RUN pip3 install -r requirements.txt
 
 # CMD tail -f /dev/null
-CMD ["python3","manage.py","runserver","0.0.0.0:80"]
+CMD ["python3","manage.py","runserver","0.0.0.0:8000"]
