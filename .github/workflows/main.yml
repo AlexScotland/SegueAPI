@@ -27,9 +27,10 @@ jobs:
       - name: Install the Flake8
         run: |
           sudo apt-get install pip -y
+          sudo apt-get install python3 -y
           pip install flake8==4.0.1
       - name: FLAKE8 Code
-        run: python -m flake8 ./bin/ 
+        run: python3 -m flake8 ./bin/ 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
