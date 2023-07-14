@@ -12,25 +12,25 @@ services:
         - internalNetwork
       volumes:
         - "./bin/backend/:/app/webserver/"
-    rabbitmq:
-      image: rabbitmq:3-management-alpine
-      ports:
-        - 5672:5672
-        - 15672:15672
-          #      volumes:
-          #        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-          #        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
-      networks:
-        - internalNetwork
-    worker:
-      build:
-        context: ./build/celery_worker
-        dockerfile: build_worker
-      depends_on:
-        - "rabbitmq"
-      volumes:
-        - "./bin/celery_worker:/worker/"
-      networks:
-        - internalNetwork
+    # rabbitmq:
+    #   image: rabbitmq:3-management-alpine
+    #   ports:
+    #     - 5672:5672
+    #     - 15672:15672
+    #       #      volumes:
+    #       #        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+    #       #        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    #   networks:
+    #     - internalNetwork
+    # worker:
+    #   build:
+    #     context: ./build/celery_worker
+    #     dockerfile: build_worker
+    #   depends_on:
+    #     - "rabbitmq"
+    #   volumes:
+    #     - "./bin/celery_worker:/worker/"
+    #   networks:
+    #     - internalNetwork
 networks:
   internalNetwork:
